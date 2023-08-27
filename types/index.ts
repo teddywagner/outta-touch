@@ -9,3 +9,9 @@ export interface CustomButtonProps {
   rightIcon?: string;
   isDisabled?: boolean;
 }
+
+export interface ImageContainerProps {
+  src: string;
+  styles?: string;
+  children?: React.ReactNode;
+}
