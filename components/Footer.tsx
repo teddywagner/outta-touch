@@ -1,10 +1,11 @@
 "use client";
 import { Instagram, PhoneEnabled, EmailOutlined } from "@mui/icons-material";
 import Image from "next/image";
+import { contactInfo } from "@/constants";
 
 const Footer = () => {
   return (
-    <footer className="flex justify-end flex-col w-full bg-deep-blue text-white padding-y font-mont text-sm">
+    <footer className="flex justify-end flex-col w-full bg-slate-800 text-white padding-y font-mont text-sm gap-3">
       <div className="flex-center gap-6">
         <div className="flex flex-1 justify-end">
           <Image
@@ -19,16 +20,15 @@ const Footer = () => {
         <div className="flex-1 flex flex-col justify-end text-sm">
           <span className="text-lg">Contact</span>
           <div className="flex items-center font-[200] gap-1">
-            <Instagram />
-            @OUTTATOUCHBOAT
+            <Instagram />@{contactInfo.instagram}
           </div>
           <div className="flex items-center font-[200] gap-1">
             <PhoneEnabled />
-            214 555 1111
+            {contactInfo.phone}
           </div>
           <div className="flex items-center font-[200] gap-1">
             <EmailOutlined />
-            EXAMPLE@OUTTATOUCH.COM
+            {contactInfo.email}
           </div>
         </div>
       </div>

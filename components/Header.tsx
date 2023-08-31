@@ -12,10 +12,11 @@ import {
 } from "@mui/icons-material";
 import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
+import { contactInfo } from "@/constants";
 
 const Header = () => {
   return (
-    <header className="flex sm:justify-between items-center bg-gradient-radial from-faded-white w-full absolute padding-y padding-x text-white h-[7rem]">
+    <header className="flex sm:justify-between items-center bg-sky-900 w-full padding-y padding-x text-white h-[7rem]">
       <div className="flex sm:flex-1 gap-5">
         <Link href="/about" className="hover:underline hidden sm:flex">
           About us
@@ -34,16 +35,22 @@ const Header = () => {
         />
       </Link>
       <div className="sm:flex flex-1 justify-end gap-3 hidden">
-        <Instagram />
-        <PhoneEnabled />
-        <EmailOutlined />
+        <Link href="/contact" className="hover:underline">
+          Contact us
+        </Link>
+        <a
+          href={`https://www.instagram.com/${contactInfo.instagram}`}
+          target="_blank"
+        >
+          <Instagram />
+        </a>
       </div>
       <div className="flex flex-1 justify-end sm:hidden">
         <Menu as="div" className="relative inline-block text-left">
           <Menu.Button>
             <MenuIcon />
           </Menu.Button>
-          <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-black">
+          <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-slate-950">
             <div className="flex flex-col px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
@@ -81,6 +88,20 @@ const Header = () => {
                   >
                     <MessageOutlined />
                     <span className="ml-1">Contact us</span>
+                  </a>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <a
+                    className={`rounded-md px-1 py-1 ${
+                      active && "bg-deep-blue text-white"
+                    }`}
+                    href={`https://www.instagram.com/${contactInfo.instagram}`}
+                    target="_blank"
+                  >
+                    <Instagram />
+                    <span className="ml-1">Instagram</span>
                   </a>
                 )}
               </Menu.Item>

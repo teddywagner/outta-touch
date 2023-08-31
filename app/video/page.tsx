@@ -1,20 +1,15 @@
 import Link from "next/link";
-const Hero = () => {
+const index = () => {
   return (
     <div className="flex-center w-full h-[100vh]">
-      <div className="absolute z-[-1] w-full h-[100vh] bg-[rgba(0,0,0,.5)]"></div>
-      <video
-        src={`http://${process.env.GOOGLE_LOAD_BALANCER_URL}/video/mobile-video.mp4`}
-        autoPlay
-        loop
-        muted
-      />
+      <div className="absolute w-full h-[100vh] bg-[rgba(0,0,0,.5)]"></div>
+      <video src="/video-bg.mp4" autoPlay loop muted />
       <div className="absolute">
         <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
           <h1 className="text-[3.2rem] padding-x">Come sail with us</h1>
           <div className="border-t-2 border-white w-full"></div>
           <p className="padding-x">
-            The Outta Touch is a Custom 105’ foot Superyacht capable of
+            The Outta Touch is a Custom 105′ foot Superyacht capable of
             entertaining up to 8 guests within its cabins. Built by Intermarine
             Savannah it provides a large main lounge area, featuring a bar,
             spacious seating with a view. It hosts a vast selection of amenities
@@ -24,7 +19,7 @@ const Hero = () => {
           </p>
           <Link
             href="/about"
-            className="flex-center border-2 border-white rounded-md w-[18rem] hover:bg-[rgba(255,255,255,0.2)] py-5"
+            className="flex-center border-2 border-white rounded-md w-[23rem] hover:bg-[rgba(255,255,255,0.2)] py-5"
           >
             <span className="font-mont font-[100]">LEARN MORE</span>
           </Link>
@@ -34,4 +29,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default index;

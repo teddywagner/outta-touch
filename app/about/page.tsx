@@ -1,11 +1,13 @@
 "use client";
 import { entertainment, interior, dining } from "@/constants";
-import Fragment from "react";
+import Link from "next/link";
 
 const About = () => {
   return (
     <div>
-      <div className="flex-center bg-img bg-[url('/about_1.jpg')]">
+      <div
+        className={`flex-center h-[100vh] bg-img bg-[url('http://34.107.197.90/main/entertainment.jpg')]`}
+      >
         <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
           <h1 className="text-2xl padding-x">{entertainment.key}</h1>
           <div>
@@ -17,18 +19,38 @@ const About = () => {
               ))}
             </ul>
           </div>
+          <Link
+            href="/gallery/entertainment"
+            className="flex-center border-2 border-white rounded-md w-[15rem] hover:bg-[rgba(255,255,255,0.2)] py-3"
+          >
+            <span className="font-mont font-[100]">See more</span>
+          </Link>
         </div>
       </div>
-      <div className="flex-center bg-img bg-[url('/about_2.jpg')]">
+      <div className="flex-center h-[100vh] bg-img bg-[url('http://34.107.197.90/main/interior.jpg')]">
         <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
           <h1 className="text-2xl padding-x">{interior.key}</h1>
           <p className="padding-x">{interior.value}</p>
+          <p className="padding-x">{interior.description.paragraph1}</p>
+          <p className="padding-x">{interior.description.paragraph2}</p>
+          <Link
+            href="/gallery/interior"
+            className="flex-center border-2 border-white rounded-md w-[15rem] hover:bg-[rgba(255,255,255,0.2)] py-3"
+          >
+            <span className="font-mont font-[100]">See more</span>
+          </Link>
         </div>
       </div>
-      <div className="flex-center bg-img bg-[url('/about_3.jpg')]">
+      <div className="flex-center h-[100vh] bg-img bg-[url('http://34.107.197.90/main/dining.jpg')]">
         <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
           <h1 className="text-2xl padding-x">{dining.key}</h1>
           <p className="padding-x">{dining.value}</p>
+          <Link
+            href="/gallery/dining"
+            className="flex-center border-2 border-white rounded-md w-[15rem] hover:bg-[rgba(255,255,255,0.2)] py-3"
+          >
+            <span className="font-mont font-[100]">See more</span>
+          </Link>
         </div>
       </div>
     </div>
