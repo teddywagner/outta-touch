@@ -1,6 +1,7 @@
 {
   "name": "outta-touch",
   "version": "0.1.0",
+  "author": "Nicholas Wagner",
   "private": true,
   "scripts": {
     "dev": "next dev",
