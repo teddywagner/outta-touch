@@ -1,8 +1,7 @@
-//https://tailwindui.com/components/marketing/sections/contact-sections
-import React from "react";
+import { ContactPage } from "@/components";
 
-const page = () => {
-  return <div>page</div>;
+const Contact = () => {
+  return <ContactPage />;
 };
 
-export default page;
+export default Contact;
