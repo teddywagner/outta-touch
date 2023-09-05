@@ -11,22 +11,25 @@ export interface Database {
     Tables: {
       images: {
         Row: {
-          AltText: string
-          FileName: string
-          Folder: string
+          altText: string
+          filename: string
+          folder: string
           id: string
+          isFavorite: boolean
         }
         Insert: {
-          AltText: string
-          FileName: string
-          Folder: string
+          altText: string
+          filename: string
+          folder: string
           id: string
+          isFavorite?: boolean
         }
         Update: {
-          AltText?: string
-          FileName?: string
-          Folder?: string
+          altText?: string
+          filename?: string
+          folder?: string
           id?: string
+          isFavorite?: boolean
         }
         Relationships: []
       }

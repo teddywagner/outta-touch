@@ -1,3 +1,4 @@
+import About from "./About";
 import BlurImage from "./BlurImage";
 import ContactForm from "./ContactForm";
 import ContactPage from "./ContactPage";
@@ -6,8 +7,10 @@ import Footer from "./Footer";
 import Gallery from "./Gallery";
 import Header from "./Header";
 import Hero from "./Hero";
+import TripCard from "./TripCard";
 
 export {
+  About,
   BlurImage,
   ContactForm,
   ContactPage,
@@ -16,4 +19,5 @@ export {
   Gallery,
   Header,
   Hero,
+  TripCard,
 };

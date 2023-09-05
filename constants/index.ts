@@ -1,3 +1,5 @@
+import { FolderType } from "@/types";
+
 export const entertainment = {
   key: "Entertainment",
   value: [
@@ -56,3 +58,42 @@ export const about = {
   "Stabilisers at anchor": "Yes",
   "Stabilisers underway": "Yes",
 };
+
+export const galleryFilters: {
+  label: string;
+  value: FolderType;
+}[] = [
+  {
+    label: "All",
+    value: "all",
+  },
+  {
+    label: "The Outta Touch",
+    value: "aerials",
+  },
+  {
+    label: "Interior",
+    value: "interior",
+  },
+  {
+    label: "Entertainment",
+    value: "entertainment",
+  },
+  {
+    label: "Food & Dining",
+    value: "dining",
+  },
+];
+
+export const trips = [
+  {
+    location: "Bahamas",
+    duration: "5 days/4 nights",
+    season: "November — May",
+  },
+  {
+    location: "US/British Virgin Islands",
+    duration: "5 days/4 nights",
+    season: "June — October",
+  },
+];

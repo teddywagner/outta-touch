@@ -1,13 +1,14 @@
 "use client";
 import { Instagram, PhoneEnabled, EmailOutlined } from "@mui/icons-material";
 import Image from "next/image";
+import Link from "next/link";
 import { contactInfo } from "@/constants";
 
 const Footer = () => {
   return (
     <footer className="flex justify-end flex-col w-full bg-slate-800 text-white padding-y font-mont text-sm gap-3">
       <div className="flex-center gap-6">
-        <div className="flex flex-1 justify-end">
+        <Link href="/" className="flex flex-1 justify-end">
           <Image
             src="/outoftouch.png"
             alt="Outta Touch logo"
@@ -15,7 +16,7 @@ const Footer = () => {
             height={100}
             className="object-contain"
           />
-        </div>
+        </Link>
         <div className="border-l border-white h-32 w-[1px]"></div>
         <div className="flex-1 flex flex-col justify-end text-sm">
           <span className="text-lg">Contact</span>

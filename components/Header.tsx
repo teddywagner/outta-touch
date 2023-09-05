@@ -17,14 +17,6 @@ import { contactInfo } from "@/constants";
 const Header = () => {
   return (
     <header className="flex sm:justify-between items-center bg-sky-900 w-full padding-y padding-x text-white h-[7rem]">
-      <div className="flex sm:flex-1 gap-5">
-        <Link href="/about" className="hover:underline hidden sm:flex">
-          About us
-        </Link>
-        <Link href="/gallery" className="hover:underline hidden sm:flex">
-          Gallery
-        </Link>
-      </div>
       <Link href="/" className="flex justify-self-start">
         <Image
           src="/outoftouch.png"
@@ -34,7 +26,13 @@ const Header = () => {
           className="object-contain"
         />
       </Link>
-      <div className="sm:flex flex-1 justify-end gap-3 hidden">
+      <div className="sm:flex flex-1 justify-end gap-5 hidden">
+        <Link href="/about" className="hover:underline">
+          About us
+        </Link>
+        <Link href="/gallery" className="hover:underline">
+          Gallery
+        </Link>
         <Link href="/contact" className="hover:underline">
           Contact us
         </Link>

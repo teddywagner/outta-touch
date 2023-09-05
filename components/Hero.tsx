@@ -2,9 +2,9 @@ import Link from "next/link";
 const Hero = () => {
   return (
     <div className="flex-center w-full h-[100vh]">
-      <div className="absolute z-[-1] w-full h-[100vh] bg-[rgba(0,0,0,.5)]"></div>
+      <div className="darken"></div>
       <video
-        src={`http://${process.env.GOOGLE_LOAD_BALANCER_URL}/video/mobile-video.mp4`}
+        src={`http://34.120.26.71:80/video/mobile-video.mp4`}
         autoPlay
         loop
         muted

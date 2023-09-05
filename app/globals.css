@@ -26,6 +26,11 @@
 .custom-btn {
   @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
 }
+
+.darken {
+  @apply absolute z-[-1] w-full h-[100vh] bg-[rgba(0,0,0,.5)];
+}
+
 /* END: General styles */
 
 .bg-img {
@@ -43,6 +48,17 @@ video {
   object-fit: cover;
   position: relative;
   z-index: -2;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+}
+
+.card-bg {
+  @apply h-fit md:h-[75vh];
 }
 
 header {

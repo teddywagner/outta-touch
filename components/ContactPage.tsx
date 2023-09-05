@@ -8,17 +8,12 @@ import { contactInfo } from "@/constants";
 import { ContactForm } from ".";
 import { useState } from "react";
 
-interface ContactPageProps {
-  landing: boolean;
-}
-
-const ContactPage = ({ landing }: ContactPageProps) => {
+const ContactPage = () => {
   const [submitted, setSubmitted] = useState<boolean>(false);
   return (
     <div
-      className={`font-mont flex-center bg-img bg-[url('http://34.107.197.90/main/wide-boat.jpg')] padding-x ${
-        !landing ? "pt-[112px] pb-4" : "padding-y"
-      } ${submitted ? "h-[100vh]" : "h-auto"}`}
+      className={`font-mont flex-center bg-img bg-boat padding-x py-8
+       ${submitted ? "h-[100vh]" : "h-auto"}`}
     >
       <div className="flex flex-col lg:flex-row">
         <div className="flex flex-col bg-gray-100 rounded-t-md lg:rounded-l-md lg:rounded-tr-none border-gray-200 padding-x padding-y gap-5">

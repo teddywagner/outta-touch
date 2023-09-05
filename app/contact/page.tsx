@@ -1,7 +1,7 @@
 import { ContactPage } from "@/components";
 
 const Contact = () => {
-  return <ContactPage landing={false} />;
+  return <ContactPage />;
 };
 
 export default Contact;
