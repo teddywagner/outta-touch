@@ -18,13 +18,15 @@ const config: Config = {
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        boat: "url('http://34.120.26.71/main/wide-boat.jpg')",
-        entertainment: "url('http://34.120.26.71/main/entertainment.jpg')",
-        dining: "url('http://34.120.26.71/main/dining.jpg')",
-        interior: "url('http://34.120.26.71/main/interior.jpg')",
-        bahamas: "url('http://34.120.26.71/destinations/Bahamas.jpg')",
+        boat: "url('https://nicholas-e-wagner.com/main/wide-boat.jpg')",
+        entertainment:
+          "url('https://nicholas-e-wagner.com/main/entertainment.jpg')",
+        dining: "url('https://nicholas-e-wagner.com/main/dining.jpg')",
+        interior: "url('https://nicholas-e-wagner.com/main/interior.jpg')",
+        bahamas:
+          "url('https://nicholas-e-wagner.com/destinations/Bahamas.jpg')",
         "virgin-islands":
-          "url('http://34.120.26.71/destinations/VirginIslands.jpg')",
+          "url('https://nicholas-e-wagner.com/destinations/VirginIslands.jpg')",
       },
       gridTemplateColumns: {
         gallery: "repeat(auto-fill, minmax(250px, 1fr))",
