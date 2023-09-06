@@ -1,34 +1,115 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# The Outta Touch Staple Website
 
-## Getting Started
+## Description
 
-First, run the development server:
+I started this project to redesign the website for the Outta Touch yacht chartering service. I sawe this as an opportunity to dive into a few technologies I have been studying, but have not implemented fully. Leveraging the NextJS 13 framework, I utilized Supabase, Google Cloud, and Vercel to fully bring this project to light. I thoroughly enjoyed building this website during my corporate hiatus.
 
-```bash
+## Table of Contents (Optional)
+
+If your README is long, add a table of contents to make it easy for users to find what they need.
+
+- [Installation](#installation)
+- [Google Cloud Sheets API](#google-cloud-sheets-api)
+- [Google Cloud CDN](#google-cloud-cdn)
+- [Supabase](#supabase)
+- [Vercel](#vercel)
+- [License](#license)
+
+## Installation
+
+After cloning the repository, run:
+
+```
+npm i
+npm run gen-types
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+and your application will begin running on `port 3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Google Cloud Sheets API
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+From Google Cloud, I utilized the Sheets API to quickly implement a Contact form for the website. I created a service account and copied the credentials file to the root of the project. I then created a `.env.local` file and added the following variables:
 
-## Learn More
+```
+OOGLE_CLIENT_EMAIL=
+GOOGLE_PRIVATE_KEY=
+GOOGLE_SHEET_ID=
+```
 
-To learn more about Next.js, take a look at the following resources:
+This allowed me to use the `google-spreadsheet` package to quickly implement a contact form without the need for a backend. I weighed the use cases for a backend and decided, with the help of my client, that they would access data easier through a Google Sheet.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Google Cloud CDN
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+The largest hurdle with this site was implementing the `/gallery` pages. With several hundred photos and videos of content, I needed a CDN to optimally and reliably retrieve images. I used Google Cloud Storage to store the images and videos and then used the Google Cloud CDN. I created a bucket and uploaded the images and videos to the bucket. I then created a load balancer and added the bucket as a backend service.
 
-## Deploy on Vercel
+However, I ran into some performance issues fetching all of the photos in bulk, and needed a solution to store the image metadata in a database to quickly sort and filter the images without fetching large amounts of data.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Supabase
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I used Supabase to store the image metadata. I created a `.env.local` file and added the following variables:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
+
+I then created a table called `images` with the following columns:
+
+```
+id: integer
+folder: text
+filename: text
+altText: text
+favorite: boolean
+```
+
+This allowed me to make one fetch request to the database and retrieve all of the image metadata. I then used the `folder` column to filter the images by gallery. I also added a `favorite` column to allow the client to select their favorite images and display them on the home page.
+
+## Vercel
+
+I used Vercel to deploy the website. I followed the instructions to connect my GitHub repository to Vercel and then added the necessary environment variables. I then added the following build commands:
+
+```
+npm i
+npm run gen-types
+npm run build
+```
+
+## Credits
+
+List your collaborators, if any, with links to their GitHub profiles.
+
+If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+
+If you followed tutorials, include links to those here as well.
+
+Nicholas (Teddy) Wagner - [GitHub](https://github.com/teddywagner)
+
+## License
+
+MIT License
+
+Copyright &copy; 2023 Nicholas Wagner
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+🏆 🏆 🏆

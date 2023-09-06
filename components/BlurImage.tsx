@@ -22,7 +22,7 @@ const BlurImage: FunctionComponent<BlurImageProps> = ({
         src={`https://nicholas-e-wagner.com/${src}`}
         fill
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-        className={`object-cover group-hover:opacity-75 ${
+        className={`object-cover ${
           loading
             ? "grayscale blur-2xl scale-110"
             : "grayscale-0 blur-0 scale-100"

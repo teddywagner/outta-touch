@@ -14,7 +14,7 @@ const Hero = () => {
           <h1 className="text-[3.2rem] padding-x">Come sail with us</h1>
           <div className="border-t-2 border-white w-full"></div>
           <p className="padding-x">
-            The Outta Touch is a Custom 105’ foot Superyacht capable of
+            The Outta Touch is a Custom 105’ Superyacht capable of
             entertaining up to 8 guests within its cabins. Built by Intermarine
             Savannah it provides a large main lounge area, featuring a bar,
             spacious seating with a view. It hosts a vast selection of amenities
