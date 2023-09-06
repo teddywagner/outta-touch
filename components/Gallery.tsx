@@ -27,7 +27,7 @@ const Gallery = ({
     setTotalImages(filtered.length);
 
     return filtered.slice(0, page * limit);
-  }, [folder, page]);
+  }, [folder, page, images]);
 
   return (
     <div className="bg-gradient-to-b from-sky-300 to-blue-900 px-16">
