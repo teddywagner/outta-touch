@@ -9,12 +9,14 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        playfair: ["Playfair Display", "serif"],
+        cinzel: ["Cinzel", "serif"],
         mont: ["Montserrat", "sans-serif"],
       },
       colors: {
+        gold: "#d6a617",
         "faded-white": "rgba(152, 152, 152, 0.30)",
-        "deep-blue": "rgba(0, 84, 106, 1)",
+        navy: "#123055",
+        sand: "#f6f6f6",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

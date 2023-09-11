@@ -1,5 +1,5 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import { BlurImage } from ".";
 import { galleryFilters } from "@/constants";
 import { FolderType, Image } from "@/types";
@@ -15,14 +15,14 @@ const Gallery = ({
   filter?: FolderType;
 }) => {
   const [folder, setFolder] = useState<FolderType>(
-    filter || ("all" satisfies FolderType)
+    filter || ("all" satisfies FolderType),
   );
   const [page, setPage] = useState(1);
   const [totalImages, setTotalImages] = useState(images.length);
 
   const filteredImages = useMemo(() => {
     const filtered = images.filter((image) =>
-      folder === "all" ? true : image.folder === folder
+      folder === "all" ? true : image.folder === folder,
     );
     setTotalImages(filtered.length);
 
@@ -30,55 +30,57 @@ const Gallery = ({
   }, [folder, page, images]);
 
   return (
-    <div className="bg-gradient-to-b from-sky-300 to-blue-900 px-16">
-      <div className="flex justify-between flex-col sm:flex-row  text-white w-full padding-y mx-auto max-w-2xl">
-        {galleryFilters.map((filter) => (
-          <span
-            key={filter.value}
-            className={`hover:underline hover:cursor-pointer w-fit ${
-              filter.value === folder && "font-bold underline"
-            }`}
-            onClick={() => {
-              setPage(1);
-              setFolder(filter.value);
-            }}
-          >
-            {filter.label}
-          </span>
-        ))}
-      </div>
-      <div className="grid grid-cols-gallery gap-y-10 gap-x-6 py-3">
-        {filteredImages &&
-          filteredImages.map(({ id, folder, filename, altText }, i) => (
-            <BlurImage
-              key={id}
-              src={`${folder}/${filename}`}
-              alt={altText}
-              priority={i < 5}
-            />
+    <div className="bg-boat bg-repeat-y bg-center">
+      <div className="backdrop-blur-2xl px-16 pt-28">
+        <div className="flex justify-between flex-col sm:flex-row  text-white w-full padding-y mx-auto max-w-xl">
+          {galleryFilters.map((filter) => (
+            <span
+              key={filter.value}
+              className={`hover:underline hover:cursor-pointer w-fit ${
+                filter.value === folder && "font-bold underline"
+              }`}
+              onClick={() => {
+                setPage(1);
+                setFolder(filter.value);
+              }}
+            >
+              {filter.label}
+            </span>
           ))}
-      </div>
-      <div className="flex-center w-full gap-10">
-        {totalImages > page * limit && (
+        </div>
+        <div className="grid grid-cols-gallery gap-y-10 gap-x-6 py-3">
+          {filteredImages &&
+            filteredImages.map(({ id, folder, filename, altText }, i) => (
+              <BlurImage
+                key={id}
+                src={`${folder}/${filename}`}
+                alt={altText}
+                priority={i < 5}
+              />
+            ))}
+        </div>
+        <div className="flex-center w-full gap-10">
+          {totalImages > page * limit && (
+            <button
+              className="flex-center items-center hover:underline text-white py-3 text-lg"
+              onClick={() => {
+                setPage(page + 1);
+              }}
+            >
+              <Add />
+              See more
+            </button>
+          )}
           <button
             className="flex-center items-center hover:underline text-white py-3 text-lg"
             onClick={() => {
-              setPage(page + 1);
+              window.scrollTo(0, 0);
             }}
           >
-            <Add />
-            See more
+            Back to top
+            <ArrowUpward />
           </button>
-        )}
-        <button
-          className="flex-center items-center hover:underline text-white py-3 text-lg"
-          onClick={() => {
-            window.scrollTo(0, 0);
-          }}
-        >
-          Back to top
-          <ArrowUpward />
-        </button>
+        </div>
       </div>
     </div>
   );
