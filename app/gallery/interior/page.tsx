@@ -1,6 +1,6 @@
 import { Gallery } from "@/components";
-import { getImages } from "../page";
 import { FolderType } from "@/types";
+import { getImages } from "@/app/api/get-images";
 
 export const dynamic = "force-dynamic";
 

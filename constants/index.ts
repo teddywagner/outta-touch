@@ -68,7 +68,7 @@ export const galleryFilters: {
     value: "all",
   },
   {
-    label: "The Outta Touch",
+    label: "Exterior",
     value: "aerials",
   },
   {

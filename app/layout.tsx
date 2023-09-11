@@ -1,9 +1,6 @@
 import { Footer, Header } from "@/components";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Playfair_Display } from "next/font/google";
-
-const playfairDisplay = Playfair_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Outta Touch",
@@ -18,10 +15,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={playfairDisplay.className}>
-        <Header />
-        {children}
-        <Footer />
+      <body>
+        <div className={"flex flex-col min-h-screen"}>
+          <Header />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );
