@@ -1,36 +1,27 @@
 "use client";
 
-import { CustomButtonProps } from "@/types";
-import Image from "next/image";
+import Link from "next/link";
 
-const CustomButton = ({
-  title,
-  containerStyles,
-  handleClick,
-  btnType,
-  textStyles,
-  rightIcon,
-  isDisabled,
-}: CustomButtonProps) => {
+const CustomButton = ({ title, href }: { title: string; href: string }) => {
+  title = title.toUpperCase();
+
   return (
-    <button
-      disabled={!!isDisabled || false}
-      type={btnType || "button"}
-      className={`custom-btn ${containerStyles}`}
-      onClick={handleClick}
+    <Link
+      href={href}
+      className="flex-center border-2 border-gold rounded-md w-56 hover:bg-gold py-3"
     >
-      <span className={`flex-1 ${textStyles}`}>{title}</span>
-      {rightIcon && (
-        <div className="relative w-6 h-6">
-          <Image
-            src={rightIcon}
-            alt="right icon"
-            fill
-            className="object-contain"
-          />
-        </div>
-      )}
-    </button>
+      <span className="flex font-nunito font-light">
+        {title}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="currentColor"
+          className="w-6 h-6"
+          viewBox="0 0 16 16"
+        >
+          <path d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+        </svg>
+      </span>
+    </Link>
   );
 };
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Libre+Franklin:wght@300;400&family=Montserrat:wght@300;400;500&family=Nunito:wght@200;300&family=Playfair+Display:wght@400;500;600&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,7 +35,7 @@
 /* END: General styles */
 
 .bg-img {
-  @apply w-full bg-cover bg-center;
+  @apply w-full bg-cover;
 }
 
 li {

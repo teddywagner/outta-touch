@@ -10,11 +10,12 @@ const Footer = () => {
       <div className="flex-center gap-6">
         <Link href="/" className="flex flex-1 justify-end">
           <Image
-            src="/outoftouch.png"
+            src="/outoftouch_script.svg"
             alt="Outta Touch logo"
-            width={150}
+            width={300}
             height={100}
             className="object-contain"
+            priority
           />
         </Link>
         <div className="border-l border-white h-32 w-[1px]"></div>
