@@ -10,14 +10,9 @@ const config: Config = {
     extend: {
       fontFamily: {
         cinzel: ["Cinzel", "serif"],
-        playfair: ["Playfair Display", "serif"],
         mont: ["Montserrat", "sans-serif"],
         libre: ["Libre Franklin", "sans-serif"],
         nunito: ["Nunito", "sans-serif"],
-        //font-family: 'Cinzel', serif;
-        // font-family: 'Libre Franklin', sans-serif;
-        // font-family: 'Montserrat', sans-serif;
-        // font-family: 'Nunito', sans-serif;
       },
       colors: {
         navy: "rgb(13, 48, 86)",
