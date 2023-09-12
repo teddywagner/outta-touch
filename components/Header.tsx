@@ -10,33 +10,31 @@ import {
   MessageOutlined,
 } from "@mui/icons-material";
 import { Menu } from "@headlessui/react";
-import { contactInfo } from "@/constants";
+import { contactInfo, navItems } from "@/constants";
 
 const Header = () => {
   return (
-    <header className="absolute self-center flex sm:justify-between items-center w-full padding-y padding-x text-white h-[7rem] mx-auto max-w-screen-xl">
+    <header className="font-nunito font-light absolute self-center flex sm:justify-between items-center w-full padding-y padding-x text-white h-[7rem] mx-auto max-w-screen-xl">
       <Link href="/" className="flex justify-self-start">
         <Image
-          src="/outoftouch.png"
+          src="/outoftouch_script.svg"
           alt="Outta Touch logo"
           height={100}
-          width={200}
+          width={350}
           className="object-contain"
+          priority
         />
       </Link>
       <div className="sm:flex flex-1 justify-end gap-5 hidden">
-        <Link href="/" className="hover:underline hover:text-gold">
-          Home
-        </Link>
-        <Link href="/about" className="hover:underline hover:text-gold">
-          About
-        </Link>
-        <Link href="/gallery" className="hover:underline hover:text-gold">
-          Gallery
-        </Link>
-        <Link href="/contact" className="hover:underline hover:text-gold">
-          Contact
-        </Link>
+        {navItems.map((item) => (
+          <Link
+            href={item.href}
+            key={item.title}
+            className="hover:underline hover:text-gold"
+          >
+            {item.title.toUpperCase()}
+          </Link>
+        ))}
         <a
           href={`https://instagram.com/${contactInfo.instagram}`}
           target="_blank"

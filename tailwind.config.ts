@@ -11,12 +11,17 @@ const config: Config = {
       fontFamily: {
         cinzel: ["Cinzel", "serif"],
         mont: ["Montserrat", "sans-serif"],
+        libre: ["Libre Franklin", "sans-serif"],
+        nunito: ["Nunito", "sans-serif"],
       },
       colors: {
-        gold: "#d6a617",
+        navy: "rgb(13, 48, 86)",
+        "navy-light": "#7DA1C4",
+        "cool-gray": "#97999B",
+        "cool-gray-light": "#D0D0CE",
+        gold: "rgb(202,162,60)",
+        black: "#25282A",
         "faded-white": "rgba(152, 152, 152, 0.30)",
-        navy: "#123055",
-        sand: "#f6f6f6",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

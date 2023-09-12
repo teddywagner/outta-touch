@@ -1,6 +1,5 @@
-import { entertainment, interior, dining } from "@/constants";
-import { ArrowForward } from "@mui/icons-material";
-import Link from "next/link";
+import { dining, entertainment, interior } from "@/constants";
+import { CustomButton } from "@/components";
 
 const About = () => (
   <div>
@@ -18,48 +17,23 @@ const About = () => (
             ))}
           </ul>
         </div>
-        <Link
-          href="/gallery/entertainment"
-          className="flex-center border-2 border-white rounded-md w-[15rem] hover:bg-[rgba(255,255,255,0.2)] py-3"
-        >
-          <span className="font-mont font-[100]">
-            See more <ArrowForward />
-          </span>
-        </Link>
+        <CustomButton href="/gallery/entertainment" title="See more" />
       </div>
     </div>
-    <div
-      className={`flex-center h-[100vh] bg-img bg-interior`}
-    >
+    <div className={`flex-center h-[100vh] bg-img bg-interior`}>
       <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
         <h1 className="text-2xl padding-x">{interior.key}</h1>
         <p className="padding-x">{interior.value}</p>
         <p className="padding-x">{interior.description.paragraph1}</p>
         <p className="padding-x">{interior.description.paragraph2}</p>
-        <Link
-          href="/gallery/interior"
-          className="flex-center border-2 border-white rounded-md w-[15rem] hover:bg-[rgba(255,255,255,0.2)] py-3"
-        >
-          <span className="font-mont font-[100]">
-            See more <ArrowForward />
-          </span>
-        </Link>
+        <CustomButton href="/gallery/interior" title="See more" />
       </div>
     </div>
-    <div
-      className={`flex-center h-[100vh] bg-img bg-dining`}
-    >
+    <div className={`flex-center h-[100vh] bg-img bg-dining`}>
       <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
         <h1 className="text-2xl padding-x">{dining.key}</h1>
         <p className="padding-x">{dining.value}</p>
-        <Link
-          href="/gallery/dining"
-          className="flex-center border-2 border-white rounded-md w-[15rem] hover:bg-[rgba(255,255,255,0.2)] py-3"
-        >
-          <span className="font-mont font-[100]">
-            See more <ArrowForward />
-          </span>
-        </Link>
+        <CustomButton href="/gallery/dining" title="See more" />
       </div>
     </div>
   </div>

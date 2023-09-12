@@ -85,15 +85,9 @@ export const galleryFilters: {
   },
 ];
 
-export const trips = [
-  {
-    location: "Bahamas",
-    duration: "5 days/4 nights",
-    season: "November — May",
-  },
-  {
-    location: "US/British Virgin Islands",
-    duration: "5 days/4 nights",
-    season: "June — October",
-  },
+export const navItems: { title: string; href: string }[] = [
+  { title: "Home", href: "/" },
+  { title: "About", href: "/about" },
+  { title: "Gallery", href: "/gallery" },
+  { title: "Contact", href: "/contact" },
 ];
