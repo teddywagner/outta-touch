@@ -6,17 +6,22 @@ type BlurImageProps = {
   src: string;
   alt: string;
   priority: boolean;
+  onClick: () => void;
 };
 
 const BlurImage: FunctionComponent<BlurImageProps> = ({
   src,
   alt,
   priority,
+  onClick,
 }) => {
   const [loading, isLoading] = useState<boolean>(true);
 
   return (
-    <div className="group w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded overflow-hidden xl:aspect-w-7 xl:aspect-h-8">
+    <div
+      className="group w-full aspect-w-1 aspect-h-1 bg-gray-200 rounded overflow-hidden xl:aspect-w-7 xl:aspect-h-8"
+      onClick={onClick}
+    >
       <Image
         alt={alt}
         src={`https://nicholas-e-wagner.com/${src}`}

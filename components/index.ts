@@ -1,5 +1,6 @@
 import About from "./About";
 import BlurImage from "./BlurImage";
+import Carousel from "./Carousel";
 import ContactForm from "./ContactForm";
 import ContactPage from "./ContactPage";
 import CustomButton from "./CustomButton";
@@ -12,6 +13,7 @@ import TripCard from "./TripCard";
 export {
   About,
   BlurImage,
+  Carousel,
   ContactForm,
   ContactPage,
   CustomButton,

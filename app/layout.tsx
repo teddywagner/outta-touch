@@ -1,6 +1,9 @@
 import { Footer, Header } from "@/components";
 import "./globals.css";
 import type { Metadata } from "next";
+import { Cinzel } from "next/font/google";
+
+const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
   title: "Outta Touch",
@@ -15,8 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <div className={"font-cinzel font-medium flex flex-col min-h-screen"}>
+      <body style={cinzel.style}>
+        <div id="root" className={"font-medium flex flex-col min-h-screen"}>
           <Header />
           {children}
           <Footer />
