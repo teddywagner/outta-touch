@@ -22,6 +22,23 @@ const Carousel = ({
     setIsLoading(true);
   }, [i, images]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") {
+        document.getElementById("next")?.click();
+      }
+      if (e.key === "ArrowLeft") {
+        document.getElementById("prev")?.click();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   const next = (e: MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     if (i !== images.length - 1) {
@@ -52,19 +69,15 @@ const Carousel = ({
           alt={image.altText}
           fill
           priority
-          blurDataURL="/outoftouch.png"
-          onLoadingComplete={() => {
-            console.log("k");
-            setIsLoading(false);
-          }}
+          onLoadingComplete={() => setIsLoading(false)}
           style={{ objectFit: "contain" }}
           loading="eager"
           className={`${isLoading ? "hidden" : "block"}`}
         />
       </div>
 
-      <div className="absolute inset-5 flex flex-col justify-between gap-1">
-        <div className="flex items-end justify-between gap-1">
+      <div className="absolute inset-5 flex flex-col gap-1">
+        <div className="flex flex-grow items-baseline justify-between gap-1">
           <button
             className="bg-white text-white hover:bg-gold border-gold border font-bold bg-opacity-50 rounded-full p-2"
             onClick={() => {
@@ -81,16 +94,18 @@ const Carousel = ({
             </svg>
           </button>
         </div>
-        <div className="flex gap-2">
+        <div className="flex flex-grow items-baseline">
           {i !== 0 && (
             <button
-              className="flex bg-white text-white flex-1 bg-opacity-50 border border-gold hover:bg-gold justify-center p-2"
+              id="prev"
+              className="flex bg-white text-white bg-opacity-50 border border-gold hover:bg-gold justify-center p-2"
               onClick={(e) => prev(e)}
+              accessKey="p"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
-                className="w-6 h-6 font-bold"
+                className="w-8 h-8 font-bold"
                 viewBox="0 0 16 16"
               >
                 <path
@@ -101,22 +116,26 @@ const Carousel = ({
             </button>
           )}
           {i !== images.length - 1 && (
-            <button
-              className="flex bg-white text-white flex-1 bg-opacity-50 border border-gold hover:bg-gold justify-center p-2"
-              onClick={(e) => next(e)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor"
-                className="w-6 h-6"
-                viewBox="0 0 16 16"
+            <div className="flex flex-grow justify-end">
+              <button
+                id="next"
+                className="flex bg-white text-white bg-opacity-50 border border-gold hover:bg-gold justify-center p-2"
+                onClick={(e) => next(e)}
+                accessKey="^[[C"
               >
-                <path
-                  fillRule="evenodd"
-                  d="M4.5 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
-                />
-              </svg>
-            </button>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  className="w-8 h-8"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M4.5 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
+                  />
+                </svg>
+              </button>
+            </div>
           )}
         </div>
       </div>
