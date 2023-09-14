@@ -6,7 +6,7 @@ import { FolderType, Image as ImageType } from "@/types";
 import { Add, ArrowUpward } from "@mui/icons-material";
 import Modal from "react-modal";
 
-const limit = 6;
+const limit = 24;
 
 const Gallery = ({
   images,
@@ -70,10 +70,7 @@ const Gallery = ({
                 src={`${folder}/${filename}`}
                 alt={altText}
                 priority={i < 5}
-                onClick={() => {
-                  console.log("clicked");
-                  handleSelectedIndex(i);
-                }}
+                onClick={() => handleSelectedIndex(i)}
               />
             ))}
         </div>
@@ -105,6 +102,11 @@ const Gallery = ({
         onRequestClose={closeModal}
         shouldCloseOnEsc
         contentLabel="Image"
+        appElement={
+          typeof window !== "undefined"
+            ? (document.getElementById("root") as HTMLElement)
+            : undefined
+        }
         style={{
           overlay: {
             background: "rgba(0,0,0,0.75)",

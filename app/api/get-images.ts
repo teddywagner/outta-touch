@@ -22,7 +22,7 @@ export const getImagesXML = async () => {
 
     const image = {
       id,
-      folder,
+      folder: folder satisfies FolderType,
       filename,
       altText: "",
       isFavorite: false,
@@ -42,5 +42,26 @@ export const getImages = async (): Promise<Image[]> => {
     .neq("folder", "video")
     .order("folder", { ascending: true });
 
-  return images || [];
+  if (!images) {
+    return [];
+  }
+
+  return images.map(databaseImageToApiImage);
+};
+
+type DatabaseImage = {
+  altText: string;
+  filename: string;
+  folder: string;
+  id: string;
+  isFavorite: boolean;
+};
+const databaseImageToApiImage = (image: DatabaseImage): Image => {
+  return {
+    id: image.id,
+    folder: image.folder as FolderType,
+    filename: image.filename,
+    altText: image.altText,
+    isFavorite: image.isFavorite,
+  };
 };
