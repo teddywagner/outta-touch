@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import localFont from "next/font/local";
+import { Jost } from "next/font/google";
 import {
   FilterOutlined,
   HomeOutlined,
@@ -12,9 +14,15 @@ import {
 import { Menu } from "@headlessui/react";
 import { contactInfo, navItems } from "@/constants";
 
+const aragon = localFont({ src: "../fonts/Aragon_Sans_SC_Regular.otf" });
+const jost = Jost({ subsets: ["latin"] });
+
 const Header = () => {
   return (
-    <header className="font-nunito font-light absolute self-center flex sm:justify-between items-center w-full padding-y padding-x text-white h-[7rem] mx-auto max-w-screen-xl">
+    <header
+      style={jost.style}
+      className="font-light absolute self-center flex sm:justify-between items-center w-full padding-y padding-x text-white h-[7rem] mx-auto max-w-screen-xl"
+    >
       <Link href="/" className="flex justify-self-start">
         <Image
           src="/outoftouch_script.svg"

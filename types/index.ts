@@ -13,7 +13,7 @@ export type FolderType =
 
 export type Image = {
   id: string;
-  folder: string;
+  folder: FolderType;
   filename: string;
   altText: string;
   isFavorite: boolean;
