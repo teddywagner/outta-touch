@@ -5,7 +5,7 @@ const Hero = () => {
     <div className="flex-center w-full h-[100vh]">
       <div className="darken"></div>
       <video
-        src={`https://nicholas-e-wagner.com/video/full-video.mp4`}
+        src={`https://nicholas-e-wagner.com/video/mobile-video.mp4`}
         autoPlay
         loop
         muted
