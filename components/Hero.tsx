@@ -1,10 +1,17 @@
+"use client";
 import { CustomButton } from "@/components";
+import { useEffect } from "react";
 
 const Hero = () => {
+  useEffect(() => {
+    const video = document.getElementById("video") as HTMLVideoElement;
+    video.play();
+  }, []);
   return (
     <div className="flex-center w-full h-screen">
       <div className="darken"></div>
       <video
+        id="video"
         src={`https://nicholas-e-wagner.com/video/mobile-video.mp4`}
         autoPlay
         loop
