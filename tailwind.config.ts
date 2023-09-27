@@ -10,9 +10,7 @@ const config: Config = {
     extend: {
       fontFamily: {
         cinzel: ["Cinzel", "serif"],
-        mont: ["Montserrat", "sans-serif"],
-        libre: ["Libre Franklin", "sans-serif"],
-        nunito: ["Nunito", "sans-serif"],
+        jost: ["Jost", "sans-serif"],
       },
       colors: {
         navy: "rgb(13, 48, 86)",

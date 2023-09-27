@@ -1,7 +1,4 @@
 import { FormEvent } from "react";
-import { Jost } from "next/font/google";
-
-const jost = Jost({ subsets: ["latin"] });
 
 interface ContactFormProps {
   setSubmitted: (submitted: boolean) => void;
@@ -90,11 +87,8 @@ const ContactForm = ({ setSubmitted }: ContactFormProps) => {
         ></textarea>
       </div>
       <div className="flex-center">
-        <button
-          style={jost.style}
-          className="flex-center border-2 border-gold rounded-md w-56 hover:bg-gold py-3"
-        >
-          <span className="flex font-light">SEND MESSAGE</span>
+        <button className="flex-center border-2 border-gold rounded-md w-56 hover:bg-gold py-3">
+          <span className="flex font-jost font-light">SEND MESSAGE</span>
         </button>
       </div>
     </form>

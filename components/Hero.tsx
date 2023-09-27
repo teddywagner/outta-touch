@@ -2,19 +2,22 @@ import { CustomButton } from "@/components";
 
 const Hero = () => {
   return (
-    <div className="flex-center w-full h-[100vh]">
+    <div className="flex-center w-full h-screen">
       <div className="darken"></div>
       <video
         src={`https://nicholas-e-wagner.com/video/mobile-video.mp4`}
         autoPlay
         loop
         muted
+        poster={"https://nicholas-e-wagner.com/main/wide-boat.jpg"}
       />
       <div className="absolute">
         <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
-          <h1 className="text-[3.2rem] padding-x">Come sail with us</h1>
-          <div className="border-t-2 border-white w-full"></div>
-          <p className="padding-x">
+          <h1 className="text-3xl sm:text-[3.2rem] padding-x">
+            Come sail with us
+          </h1>
+          <div className="hidden sm:block border-t-2 border-white w-full mx-3"></div>
+          <p className="hidden sm:block padding-x">
             The Outta Touch is a Custom 105’ Superyacht capable of entertaining
             up to 8 guests within its cabins. Built by Intermarine Savannah it
             provides a large main lounge area, featuring a bar, spacious seating

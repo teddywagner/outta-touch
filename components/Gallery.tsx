@@ -51,7 +51,7 @@ const Gallery = ({
             <span
               key={filter.value}
               className={`hover:underline hover:cursor-pointer w-fit ${
-                filter.value === folder && "font-bold underline"
+                filter.value === folder && "font-bold underline text-gold"
               }`}
               onClick={() => {
                 setPage(1);

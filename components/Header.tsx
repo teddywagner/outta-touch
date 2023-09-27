@@ -1,8 +1,6 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import localFont from "next/font/local";
-import { Jost } from "next/font/google";
 import {
   FilterOutlined,
   HomeOutlined,
@@ -14,15 +12,9 @@ import {
 import { Menu } from "@headlessui/react";
 import { contactInfo, navItems } from "@/constants";
 
-const aragon = localFont({ src: "../fonts/Aragon_Sans_SC_Regular.otf" });
-const jost = Jost({ subsets: ["latin"] });
-
 const Header = () => {
   return (
-    <header
-      style={jost.style}
-      className="font-light absolute self-center flex sm:justify-between items-center w-full padding-y padding-x text-white h-[7rem] mx-auto max-w-screen-xl"
-    >
+    <header className="font-jost font-light absolute self-center flex sm:justify-between items-center w-full padding-y padding-x text-white h-[7rem] mx-auto max-w-screen-xl">
       <Link href="/" className="flex justify-self-start">
         <Image
           src="/outoftouch_script.svg"
@@ -75,7 +67,7 @@ const Header = () => {
                     href="/"
                   >
                     <HomeOutlined />
-                    <span className="ml-1">Home</span>
+                    <span className="ml-1 uppercase">Home</span>
                   </a>
                 )}
               </Menu.Item>
@@ -88,7 +80,7 @@ const Header = () => {
                     href="/about"
                   >
                     <InfoOutlined />
-                    <span className="ml-1">About us</span>
+                    <span className="ml-1 uppercase">About</span>
                   </a>
                 )}
               </Menu.Item>
@@ -101,7 +93,7 @@ const Header = () => {
                     href="/gallery"
                   >
                     <FilterOutlined />
-                    <span className="ml-1">Gallery</span>
+                    <span className="ml-1 uppercase">Gallery</span>
                   </a>
                 )}
               </Menu.Item>
@@ -114,7 +106,7 @@ const Header = () => {
                     href="/contact"
                   >
                     <MessageOutlined />
-                    <span className="ml-1">Contact us</span>
+                    <span className="ml-1 uppercase">Contact</span>
                   </a>
                 )}
               </Menu.Item>
@@ -128,7 +120,7 @@ const Header = () => {
                     target="_blank"
                   >
                     <Instagram />
-                    <span className="ml-1">Instagram</span>
+                    <span className="ml-1 uppercase">Instagram</span>
                   </a>
                 )}
               </Menu.Item>
