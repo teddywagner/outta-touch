@@ -9,6 +9,7 @@ const Hero = () => {
         autoPlay
         loop
         muted
+        playsInline
         poster={"https://nicholas-e-wagner.com/main/wide-boat.jpg"}
       />
       <div className="absolute">
