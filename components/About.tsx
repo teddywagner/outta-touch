@@ -18,9 +18,7 @@ const About = () => (
         <CustomButton href="/gallery/entertainment" title="See more" />
       </div>
     </div>
-    <div
-      className={`flex-center min-h-screen padding-y bg-img bg-interior bg-blend-darken`}
-    >
+    <div className="flex-center min-h-screen padding-y bg-img bg-interior bg-blend-darken">
       <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
         <h1 className="text-2xl padding-x">{interior.key}</h1>
         <p className="padding-x">{interior.value}</p>

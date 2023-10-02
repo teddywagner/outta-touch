@@ -2,6 +2,7 @@
 import { Image as ImageType } from "@/types";
 import Image from "next/image";
 import { MouseEvent, useEffect, useState } from "react";
+import { cn } from "@/util";
 
 const Carousel = ({
   images,
@@ -57,9 +58,10 @@ const Carousel = ({
     <div className="absolute w-full h-full" onClick={closeModal}>
       <div className="absolute inset-0 flex items-center justify-center">
         <div
-          className={`${
-            !isLoading ? "hidden" : "block"
-          } text-white loading-spinner`}
+          className={cn(
+            !isLoading ? "hidden" : "block",
+            "text-white loading-spinner",
+          )}
         >
           <span className={"sr-only"}>Loading...</span>
         </div>
@@ -72,7 +74,7 @@ const Carousel = ({
           onLoadingComplete={() => setIsLoading(false)}
           style={{ objectFit: "contain" }}
           loading="eager"
-          className={`${isLoading ? "hidden" : "block"}`}
+          className={cn(isLoading ? "hidden" : "block")}
         />
       </div>
 
@@ -100,7 +102,6 @@ const Carousel = ({
               id="prev"
               className="flex bg-white text-white bg-opacity-50 border border-gold hover:bg-gold justify-center p-2"
               onClick={(e) => prev(e)}
-              accessKey="p"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +122,6 @@ const Carousel = ({
                 id="next"
                 className="flex bg-white text-white bg-opacity-50 border border-gold hover:bg-gold justify-center p-2"
                 onClick={(e) => next(e)}
-                accessKey="^[[C"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

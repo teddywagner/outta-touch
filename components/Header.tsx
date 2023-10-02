@@ -11,6 +11,7 @@ import {
 } from "@mui/icons-material";
 import { Menu } from "@headlessui/react";
 import { contactInfo, navItems } from "@/constants";
+import { cn } from "@/util";
 
 const Header = () => {
   return (
@@ -61,9 +62,10 @@ const Header = () => {
               <Menu.Item>
                 {({ active }) => (
                   <a
-                    className={`rounded-md px-1 py-1 ${
-                      active && "bg-navy text-white"
-                    }`}
+                    className={cn(
+                      "rounded-md px-1 py-1",
+                      active && "bg-navy text-white",
+                    )}
                     href="/"
                   >
                     <HomeOutlined />
@@ -74,9 +76,10 @@ const Header = () => {
               <Menu.Item>
                 {({ active }) => (
                   <a
-                    className={`rounded-md px-1 py-1 ${
-                      active && "bg-navy text-white"
-                    }`}
+                    className={cn(
+                      "rounded-md px-1 py-1",
+                      active && "bg-navy text-white",
+                    )}
                     href="/about"
                   >
                     <InfoOutlined />
@@ -87,9 +90,10 @@ const Header = () => {
               <Menu.Item>
                 {({ active }) => (
                   <a
-                    className={`rounded-md px-1 py-1 ${
-                      active && "bg-navy text-white"
-                    }`}
+                    className={cn(
+                      "rounded-md px-1 py-1",
+                      active && "bg-navy text-white",
+                    )}
                     href="/gallery"
                   >
                     <FilterOutlined />
@@ -100,9 +104,10 @@ const Header = () => {
               <Menu.Item>
                 {({ active }) => (
                   <a
-                    className={`rounded-md px-1 py-1 ${
-                      active && "bg-navy text-white"
-                    }`}
+                    className={cn(
+                      "rounded-md px-1 py-1",
+                      active && "bg-navy text-white",
+                    )}
                     href="/contact"
                   >
                     <MessageOutlined />
@@ -113,9 +118,10 @@ const Header = () => {
               <Menu.Item>
                 {({ active }) => (
                   <a
-                    className={`rounded-md px-1 py-1 ${
-                      active && "bg-navy text-white"
-                    }`}
+                    className={cn(
+                      "rounded-md px-1 py-1",
+                      active && "bg-navy text-white",
+                    )}
                     href={`https://www.instagram.com/${contactInfo.instagram}`}
                     target="_blank"
                   >

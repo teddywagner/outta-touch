@@ -5,7 +5,7 @@ import { useState } from "react";
 const ContactPage = () => {
   const [submitted, setSubmitted] = useState<boolean>(false);
   return (
-    <div className={`flex-center bg-img bg-boat padding-x py-28 min-h-screen`}>
+    <div className="flex-center bg-img bg-boat padding-x py-28 min-h-screen">
       <div className="backdrop-blur-md text-white padding-x padding-y rounded-md">
         {!submitted ? (
           <ContactForm setSubmitted={setSubmitted} />
