@@ -1,14 +1,11 @@
 import { Footer, Header } from "@/components";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Cinzel } from "next/font/google";
-
-const cinzel = Cinzel({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
   title: "Outta Touch",
   description:
-    "Outta Touch yacht chartering company. Built by Nicholas Wagner.",
+    "Outta Touch yacht chartering service. Designed and built by Nicholas Teddy Wagner.",
 };
 
 export default function RootLayout({
@@ -18,8 +15,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body style={cinzel.style}>
-        <div id="root" className={"font-medium flex flex-col min-h-screen"}>
+      <body>
+        <div
+          id="root"
+          className={"font-cinzel font-medium flex flex-col min-h-screen"}
+        >
           <Header />
           {children}
           <Footer />

@@ -3,9 +3,7 @@ import { CustomButton } from "@/components";
 
 const About = () => (
   <div>
-    <div
-      className={`flex-center h-[100vh] bg-img bg-entertainment bg-blend-darken`}
-    >
+    <div className="flex-center min-h-screen bg-img bg-entertainment bg-blend-darken">
       <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
         <h1 className="text-2xl padding-x">{entertainment.key}</h1>
         <div>
@@ -20,7 +18,7 @@ const About = () => (
         <CustomButton href="/gallery/entertainment" title="See more" />
       </div>
     </div>
-    <div className={`flex-center h-[100vh] bg-img bg-interior`}>
+    <div className="flex-center min-h-screen padding-y bg-img bg-interior bg-blend-darken">
       <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
         <h1 className="text-2xl padding-x">{interior.key}</h1>
         <p className="padding-x">{interior.value}</p>
@@ -29,7 +27,7 @@ const About = () => (
         <CustomButton href="/gallery/interior" title="See more" />
       </div>
     </div>
-    <div className={`flex-center h-[100vh] bg-img bg-dining`}>
+    <div className="flex-center min-h-screen bg-img bg-dining bg-blend-darken">
       <div className="flex flex-col items-center gap-5 text-white max-w-[650px]">
         <h1 className="text-2xl padding-x">{dining.key}</h1>
         <p className="padding-x">{dining.value}</p>

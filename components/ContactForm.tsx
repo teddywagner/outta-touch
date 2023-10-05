@@ -36,9 +36,8 @@ const ContactForm = ({ setSubmitted }: ContactFormProps) => {
 
   return (
     <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
-      <div className="flex flex-col">
+      <div className="flex flex-center">
         <h1 className="font-bold text-[2.5rem]">Get in touch</h1>
-        <h2 className="text-[1.2rem]">Schedule your adventure today!</h2>
       </div>
       <div className="flex flex-col sm:flex-row sm:gap-5">
         <div className="flex flex-1 flex-col gap-3">
@@ -87,9 +86,11 @@ const ContactForm = ({ setSubmitted }: ContactFormProps) => {
           rows={4}
         ></textarea>
       </div>
-      <button className="bg-navy text-white py-2 rounded-md w-[128px]">
-        Send message
-      </button>
+      <div className="flex-center">
+        <button className="flex-center border-2 border-gold rounded-md w-56 hover:bg-gold py-3">
+          <span className="flex font-jost font-light">SEND MESSAGE</span>
+        </button>
+      </div>
     </form>
   );
 };

@@ -5,6 +5,7 @@ import { galleryFilters } from "@/constants";
 import { FolderType, Image as ImageType } from "@/types";
 import { Add, ArrowUpward } from "@mui/icons-material";
 import Modal from "react-modal";
+import { cn } from "@/util";
 
 const limit = 24;
 
@@ -50,9 +51,10 @@ const Gallery = ({
           {galleryFilters.map((filter) => (
             <span
               key={filter.value}
-              className={`hover:underline hover:cursor-pointer w-fit ${
-                filter.value === folder && "font-bold underline"
-              }`}
+              className={cn(
+                "hover:underline hover:cursor-pointer w-fit",
+                filter.value === folder && "font-bold underline text-gold",
+              )}
               onClick={() => {
                 setPage(1);
                 setFolder(filter.value);
