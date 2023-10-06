@@ -17,15 +17,16 @@ const ContactForm = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const submitForm = async (formData: FormData) => {
-    const data = contactFormSchema.parse({
-      "first-name": formData.get("first-name"),
-      "last-name": formData.get("last-name"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      message: formData.get("message"),
-    });
-
+    setErrorMessage(null);
     try {
+      const data = contactFormSchema.parse({
+        "first-name": formData.get("first-name"),
+        "last-name": formData.get("last-name"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        message: formData.get("message"),
+      });
+
       await fetch("/api", {
         method: "POST",
         body: JSON.stringify(data),
@@ -36,8 +37,12 @@ const ContactForm = () => {
       });
 
       setSubmitted(true);
-    } catch (e: any) {
-      setErrorMessage(e.message);
+    } catch (e) {
+      if (e instanceof z.ZodError) {
+        setErrorMessage(e.issues[0].message);
+      } else {
+        setErrorMessage("An unknown error occurred.");
+      }
     }
   };
 
@@ -49,7 +54,7 @@ const ContactForm = () => {
             <h1 className="font-bold text-5xl">Get in touch</h1>
           </div>
           {errorMessage && (
-            <div className="flex-center text-lg text-red-600 bg-red-200 rounded-sm px-2 py-1">
+            <div className="flex-center text-lg text-red-600 bg-red-900/40 rounded-sm px-2 py-1">
               {errorMessage}
             </div>
           )}
@@ -61,7 +66,6 @@ const ContactForm = () => {
                 name="first-name"
                 id="first-name"
                 className="border-2 border-gray-300 rounded-md p-2 text-slate-950"
-                required
               />
             </div>
             <div className="flex flex-1 flex-col gap-3">
@@ -81,7 +85,6 @@ const ContactForm = () => {
               name="email"
               id="email"
               className="border-2 border-gray-300 rounded-md p-2 text-slate-950"
-              required
             />
           </div>
           <div className="flex flex-col gap-3">
@@ -91,7 +94,6 @@ const ContactForm = () => {
               name="phone"
               id="phone"
               className="border-2 border-gray-300 rounded-md p-2 text-slate-950"
-              required
             />
           </div>
           <div className="flex flex-col gap-3">
