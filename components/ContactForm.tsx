@@ -26,7 +26,7 @@ const ContactForm = () => {
     });
 
     try {
-      const res = await fetch("/api", {
+      await fetch("/api", {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -34,11 +34,10 @@ const ContactForm = () => {
           Accept: "application/json",
         },
       });
-      if (res.ok) {
-        setSubmitted(true);
-      }
-    } catch (e) {
-      setErrorMessage("Something went wrong. Please try again.");
+
+      setSubmitted(true);
+    } catch (e: any) {
+      setErrorMessage(e.message);
     }
   };
 

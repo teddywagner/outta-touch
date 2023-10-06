@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import nodemailer from "nodemailer";
 
 const username = process.env.EMAIL_USER;
@@ -27,27 +27,27 @@ export async function POST(req: NextRequest) {
     phone,
     message,
   } = info;
-  try {
-    await transporter.sendMail({
-      ...mailOptions,
-      subject:
-        "Outta Touch inquiry from " +
-        info["first-name"] +
-        " " +
-        info["last-name"],
-      text: "This is a test email",
-      html: `<h1>Email from ${firstName} ${lastName}</h1><p>Email: ${email}</p><p>Phone: ${phone}</p><p>Message: ${message}</p>`,
-    });
-    console.log("Email sent!");
-    return NextResponse.json({
-      status: 200,
-      message: "Message sent successfully.",
-    });
-  } catch (e) {
-    console.error(e);
-    return NextResponse.json({
-      status: 500,
-      message: "Message failed to send.",
-    });
-  }
+
+  await new Promise((resolve, reject) => {
+    // send mail
+    transporter.sendMail(
+      {
+        ...mailOptions,
+        subject:
+          "Outta Touch inquiry from " +
+          info["first-name"] +
+          " " +
+          info["last-name"],
+        text: `Email from ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`,
+        html: `<h1>Email from ${firstName} ${lastName}</h1><p>Email: ${email}</p><p>Phone: ${phone}</p><p>Message: ${message}</p>`,
+      },
+      (err, response) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(response);
+        }
+      },
+    );
+  });
 }
